@@ -14,7 +14,25 @@ body {
 	font-family: "URW Gothic L", "Helvetica", "Arial", sans-serif;
 }
 
+* {
+	padding: 0px;
+	margin: 0px;
+}
 
+#wikiheader{
+	margin: 30px;
+	padding: 10px;
+	height: 80px;
+	background-color: blue;
+
+}
+
+#wikiheader > h1{
+	display: inline-block;
+	vertical-align: top;
+	color: white;
+	font-size: 3em;
+}
 
 /* images */
 
