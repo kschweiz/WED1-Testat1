@@ -7,7 +7,7 @@
 	margin: 0;
 	padding: 0;
 }
-
+	
 /* document */
 body {
 	font-size: 1rem;
@@ -32,6 +32,39 @@ body {
 	vertical-align: top;
 	color: white;
 	font-size: 3em;
+}
+
+/*lists*/
+nav > dl{
+	padding:0.5%;
+	width:100%;
+	background: rgb(246,246,246);
+	
+	border: 1px solid steelblue;
+	
+}
+
+dl > dd {
+    padding-left:1.5%;
+}
+
+nav a[hreflang="fr"]::before{
+    background-image: url("../../media/flag-fr.svg");
+}
+nav a[hreflang="it"]::before{
+    background-image: url("../../media/flag-it.svg");
+}
+dd > a[hreflang="en"]::before{
+    background-image: url("../../media/flag-en.svg");
+}
+
+nav a[hreflang]::before {
+	content: "";
+    background-size: cover;
+    display: inline-block;
+    width: 1.25em;
+    height: 0.9em;
+    margin-right: 0.2em;
 }
 
 /* images */
