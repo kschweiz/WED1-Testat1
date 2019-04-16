@@ -7,11 +7,12 @@
 	margin: 0;
 	padding: 0;
 }
-	
+
 /* document */
 body {
 	font-size: 1rem;
 	font-family: "URW Gothic L", "Helvetica", "Arial", sans-serif;
+	margin: 2rem;
 }
 
 * {
@@ -20,11 +21,42 @@ body {
 }
 
 #wikiheader{
-	margin: 30px;
 	padding: 10px;
-	height: 80px;
-	background-color: blue;
+	height: 70px;
+	background-color: RGB(0,96,165);
+}
 
+#wikiheader > a > img{
+	height: 140%;
+	width: auto;
+}
+
+#scm-margant{
+	max-width: 30%;
+	float: left;
+	margin-right: 2rem;
+	margin-bottom: 1rem;
+}
+
+
+
+/* images */
+img{
+	width: 70%;
+	height: auto;
+}
+
+figcaption{
+	font-size: 0.9rem;
+	color: grey;
+	display: inline-block;
+}
+
+
+
+/* text */
+p{
+	margin-bottom: 1rem;
 }
 
 #wikiheader > h1{
@@ -34,12 +66,17 @@ body {
 	font-size: 3em;
 }
 
+small {
+	margin-top: 1rem;
+	display: block;
+}
+
 /*lists*/
 nav > dl{
 	padding:0.5%;
 	width:100%;
 	background: rgb(246,246,246);
-	
+
 	border: 1px solid steelblue;
 }
 
@@ -68,10 +105,31 @@ nav a[hreflang]::before {
 
 /* images */
 
+h2{
+	font-size: 2.2rem;
+	margin-top: 2.5rem;
+	font-weight: 700;
+}
 
+h3{
+	width: 100%;
+	font-size: 1.5rem;
+	font-weight: 700;
+	border-bottom: solid black thin;
+	margin-top: 1.5rem;
+	margin-bottom: 1rem;
+}
 
-/* text */
+h3:before{
+	counter-increment: h3;
+	content: counter(h3) " ";
+}
 
+h4{
+	font-size: 1rem;
+	font-weight: bold;
+	margin-bottom: 0.5rem;
+}
 
 
 /* lists */
@@ -94,4 +152,3 @@ nav a[hreflang]::before {
 	vertical-align: middle;
 	padding: 0; margin: 0;
 }
-
