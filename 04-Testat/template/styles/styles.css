@@ -36,23 +36,13 @@ body {
 	float: left;
 	margin-right: 2rem;
 	margin-bottom: 1rem;
+	display:table;
+
 }
 
-
-
-/* images */
-img{
-	width: 70%;
-	height: auto;
+#scm-margant > img {
+	max-width: 15.5em;
 }
-
-figcaption{
-	font-size: 0.9rem;
-	color: grey;
-	display: inline-block;
-}
-
-
 
 /* text */
 p{
