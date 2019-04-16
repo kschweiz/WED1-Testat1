@@ -31,14 +31,13 @@ body {
 	width: auto;
 }
 
-#scm-margant{
-	max-width: 30%;
+#calc-pic{
+	width: 30%;
 	float: left;
 	margin-right: 2rem;
 	margin-bottom: 1rem;
+	display:table;
 }
-
-
 
 /* images */
 img{
