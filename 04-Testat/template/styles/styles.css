@@ -13,6 +13,7 @@ body {
 	font-size: 1rem;
 	font-family: "URW Gothic L", "Helvetica", "Arial", sans-serif;
 	margin: 2rem;
+	counter-reset: h3;
 }
 
 * {
@@ -146,4 +147,14 @@ h4{
 	display: inline-block;
 	vertical-align: middle;
 	padding: 0; margin: 0;
+}
+
+iframe {
+	width: 100%;
+	height: calc(52vw - 2rem);
+	border: none;
+}
+
+#demonstration > figure{
+	width: calc(50vw - 2rem);
 }
