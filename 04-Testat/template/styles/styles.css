@@ -32,18 +32,25 @@ body {
 	width: auto;
 }
 
-#calc-pic{
-	width: 30%;
-	float: left;
-	margin-right: 2rem;
-	margin-bottom: 1rem;
+figure.calcPic {
+    float: left;
 	display:table;
+	margin:10px;
 }
 
-/* images */
-#calc-pic > img{
-	width: 70%;
-	height: auto;
+
+
+figure.calcPic > figcaption {
+    display:table-caption;
+    caption-side: bottom;
+	color:gray;
+	font-size:0.9rem;
+}
+		
+figure.calcPic > figcaption a{
+	color:gray;
+	text-decoration:none;
+	word-wrap:break-word;
 }
 
 #scm-margant > img {
@@ -51,6 +58,11 @@ body {
 }
 
 /* text */
+
+span.blackUnder {
+	color:black;
+	text-decoration:underline;
+}
 p{
 	margin-bottom: 1rem;
 }
@@ -73,7 +85,7 @@ nav > dl{
 	width:100%;
 	background: rgb(246,246,246);
 
-	border: 1px solid steelblue;
+	border: 2px solid steelblue;
 }
 
 dl > dd {
@@ -104,6 +116,7 @@ nav a[hreflang]::before {
 h2{
 	font-size: 2.2rem;
 	margin-top: 2.5rem;
+	margin-bottom:0.5rem;
 	font-weight: 700;
 }
 
@@ -133,7 +146,20 @@ h4{
 
 
 /* table */
-
+table{
+    width: 100%;
+    height: 60%;
+    border-top: 1px solid lightblue;
+    border-collapse: collapse;
+}
+th{
+    padding: 1.3%;
+}
+td{
+    border-top: 1px solid lightblue;
+    padding: 1.3%;
+    text-align: center;
+}
 
 
 /* forms */
