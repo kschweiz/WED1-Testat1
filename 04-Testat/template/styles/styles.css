@@ -315,10 +315,13 @@ fieldset {
 
 input:not([type="radio"]):not([type="checkbox"]):not([type="file"]):hover,
 input:not([type="radio"]):not([type="checkbox"]):not([type="file"]):active,
-input:not([type="radio"]):not([type="checkbox"]):not([type="file"]):focus,
-select:hover, select:active, select:focus, textarea:hover, textarea:active, textarea:focus {
-    color: steelblue;
-    border-bottom: solid steelblue medium;
+input:not([type="radio"]):not([type="checkbox"]):not([type="file"]):focus
+{
+   color: steelblue;
+   border-bottom: solid steelblue medium;
+}
+input:not(:focus):not(:placeholder-shown):invalid {
+    border: 2px solid red;
 }
 
 #font-size-form {
