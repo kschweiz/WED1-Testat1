@@ -181,8 +181,9 @@ ol {
 }
 
 ol > li {
-        list-style-position: inside;
-
+    list-style-position: inside;
+	margin-left: 4rem;
+    margin-bottom: 1rem;
 }
 
 /* images */
@@ -296,7 +297,7 @@ aside form, aside form input:not([type="file"]):not([type="radio"]):not([type="c
 }
 
 .gender > span {
-    display: block;
+	display: block;
     margin-bottom: 1.5rem;
 }
 
@@ -320,6 +321,7 @@ input:not([type="radio"]):not([type="checkbox"]):not([type="file"]):focus
    color: steelblue;
    border-bottom: solid steelblue medium;
 }
+
 input:not(:focus):not(:placeholder-shown):invalid {
     border: 2px solid red;
 }
@@ -335,10 +337,35 @@ input:not(:focus):not(:placeholder-shown):invalid {
 
 iframe {
 	width: 100%;
-	height: height: calc(56.25vw - 2rem);
+	height: calc(56.25vw - 2rem);
 	border: none;
 }
 
 #demonstration > figure{
 	width: calc(50vw - 2rem);
+}
+
+#page-footer{
+	padding: 1rem;
+	margin-top: 2rem;
+	border:none;
+	background: darkslateblue;
+	color:white;
+}
+
+#page-footer a{
+	margin-top: 1.5rem;
+	color:white;
+}
+
+#page-footer img {
+    height: 5%;
+    width: auto;
+    margin-left: 0.2rem;
+    margin-bottom: 0;
+}
+
+address {
+    margin-bottom: 1rem;
+    font-style: normal;
 }
