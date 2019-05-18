@@ -2,19 +2,21 @@
  * core
  */
 
-"use strict"
+"use strict";
 
-var keynumbers = document.getElementById("keyboard");
 var number1 = "";
 var number2 = "";
 var display = "";
-var operation3 = "";
+var operation = "";
 
 
+/**
+ * UI
+ */
 function buttonNumClickHandler(){
-    var content = this.value;
+    let content = this.value;
     
-    if(operation3 === ""){
+    if(operation === ""){
         number1 += content;
         display += content;
         writeInput(display);
@@ -26,36 +28,37 @@ function buttonNumClickHandler(){
 }
 
 function buttonOpClickHandler(){
-    var content = this.value;
-    if(operation3 === "" && number1 !== ""){
-        operation3 = content;
+    let content = this.value;
+
+    if(operation === "" && number1 !== ""){
+        operation = content;
         display += content;
         writeInput(display);
     }
 }
 
 function buttonCommandHandler(){
-    if(operation3 === "/" && parseFloat(number2, 10) === 0){
+    if(operation === "/" && parseFloat(number2, 10) === 0){
         buttonClearHandler();
-        writeOutput("Divsion by Zero not allowed!")
+        writeOutput("Divsion by Zero not allowed!");
     }else{
         var result = "";
-        if(operation3 === "+"){
+        if(operation === "+"){
             result = parseFloat(number1, 10) + parseFloat(number2, 10);
-        }else if(operation3 === "-"){
+        }else if(operation === "-"){
             result = parseFloat(number1, 10) - parseFloat(number2, 10);
-        }else if(operation3 === "*"){
+        }else if(operation === "*"){
             result = parseFloat(number1, 10) * parseFloat(number2, 10);
-        }else if(operation3 === "/"){
+        }else if(operation === "/"){
             result = parseFloat(number1, 10) / parseFloat(number2, 10);
         }else{
-            writeOutput("ERROR")
+            writeOutput("ERROR");
         }
     
         number1 = result;
         number2 = "";
         display = result;
-        operation3 = "";
+        operation = "";
         writeInput(result);
         writeOutput(result);
     }   
@@ -65,23 +68,10 @@ function buttonClearHandler(){
     number1 = "";
     number2 = "";
     display = "";
-    operation3 = "";
+    operation = "";
     writeInput("");
     writeOutput("");
 }
-
-
-/**
- * UI
- */
-function writeOutput(output){
-    document.getElementById("output").innerHTML = output;
-}
-
-function writeInput(input){
-    document.getElementById("input").innerHTML = input;
-}
-
 
 $(document).on("ready", function() {
     $("#output").text("Welcome");
@@ -91,14 +81,14 @@ $(document).on("ready", function() {
     $(".clear").on("click", buttonClearHandler);
  });
 
+function writeOutput(output){
+    document.getElementById("output").innerHTML = output;
+}
+
+function writeInput(input){
+    document.getElementById("input").innerHTML = input;
+}
 
 
 
-/**
- * Tests Scenarios
- */
-const testCalc = new Calculator();
-console.log(""/*TODO*/, "should be", 17);
-console.log(""/*TODO*/, "should be", 15);
-console.log(""/*TODO*/, "should be", 30);
-console.log(""/*TODO*/, "should be", true); // true = hasError
+
