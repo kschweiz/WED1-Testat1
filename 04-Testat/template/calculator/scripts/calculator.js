@@ -13,6 +13,23 @@ var operation = "";
 /**
  * UI
  */
+function writeOutput(output){
+    document.getElementById("output").innerHTML = output;
+}
+
+function writeInput(input){
+    document.getElementById("input").innerHTML = input;
+}
+
+function buttonClearHandler(){
+    number1 = "";
+    number2 = "";
+    display = "";
+    operation = "";
+    writeInput("");
+    writeOutput("");
+}
+
 function buttonNumClickHandler(){
     let content = this.value;
     
@@ -64,30 +81,15 @@ function buttonCommandHandler(){
     }   
 }
 
-function buttonClearHandler(){
-    number1 = "";
-    number2 = "";
-    display = "";
-    operation = "";
-    writeInput("");
-    writeOutput("");
-}
-
 $(document).on("ready", function() {
     $("#output").text("Welcome");
-    $(".number").on("click", window.buttonNumClickHandler);
-    $(".operator").on("click", window.buttonOpClickHandler);
+    $(".number").on("click", buttonNumClickHandler);
+    $(".operator").on("click", buttonOpClickHandler);
     $(".command").on("click", buttonCommandHandler);
     $(".clear").on("click", buttonClearHandler);
  });
 
-function writeOutput(output){
-    document.getElementById("output").innerHTML = output;
-}
 
-function writeInput(input){
-    document.getElementById("input").innerHTML = input;
-}
 
 
 
