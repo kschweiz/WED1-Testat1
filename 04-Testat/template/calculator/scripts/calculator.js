@@ -31,7 +31,7 @@ function buttonClearHandler(){
 }
 
 function buttonNumClickHandler(){
-    /*jshint validthis: true */
+    
     let content = this.value;
     
     if(operation === ""){
@@ -46,7 +46,7 @@ function buttonNumClickHandler(){
 }
 
 function buttonOpClickHandler(){
-    /*jshint validthis: true */
+   
     let content = this.value;
 
     if(operation === "" && number1 !== ""){
@@ -88,7 +88,7 @@ $(document).on("ready", function() {
     $(".number").on("click", buttonNumClickHandler);
     $(".operator").on("click", buttonOpClickHandler);
     $(".command").on("click", buttonCommandHandler);
-    $(".clear").on("click", buttonClearHandler);
+    $("#key-c").on("click", buttonClearHandler);
  });
 
 
