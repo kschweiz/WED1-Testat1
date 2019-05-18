@@ -1,17 +1,15 @@
 /**
  * core
  */
+
+"use strict"
+
 var keynumbers = document.getElementById("keyboard");
 var number1 = "";
 var number2 = "";
 var display = "";
 var operation3 = "";
 
-class Calculator {
-    constructor() {
-
-    }
-}
 
 function buttonNumClickHandler(){
     var content = this.value;
@@ -60,9 +58,7 @@ function buttonCommandHandler(){
         operation3 = "";
         writeInput(result);
         writeOutput(result);
-    }
-
-    
+    }   
 }
 
 function buttonClearHandler(){
@@ -74,6 +70,10 @@ function buttonClearHandler(){
     writeOutput("");
 }
 
+
+/**
+ * UI
+ */
 function writeOutput(output){
     document.getElementById("output").innerHTML = output;
 }
@@ -81,15 +81,6 @@ function writeOutput(output){
 function writeInput(input){
     document.getElementById("input").innerHTML = input;
 }
-
-
-/**
- * UI
- */
-window.addEventListener('DOMContentLoaded', function() {
-    const calculator = new Calculator();
-
-});
 
 
 $(document).on("ready", function() {
