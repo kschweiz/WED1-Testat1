@@ -37,6 +37,7 @@ body {
 video{
 	width: 100%;
 	height: auto;
+	margin-bottom:10px;
 }
 
 figcaption {
@@ -55,14 +56,19 @@ iframe {
     width: 100%;
 	border: none;
 	display: block;
-	height: calc(56vw - 2rem);
+
 }
 
 #calculator  {
-	max-height: 35em;
-	max-width: 33em;
+	height: calc(56.25vw - 28em);
+	width: calc(100%/3);
 	overflow:hidden;
-	border:none;
+
+}
+
+#youtube {
+	height: calc(56.25vw - 28em);
+	overflow:hidden;
 
 }
 
@@ -267,6 +273,13 @@ button {
     padding: 0 1em;
 }
 
+button:hover {
+    color: turquoise;
+}
+button:active {
+    background-color: darkblue;
+}
+
 input:not([type="radio"]):not([type="checkbox"]), select {
     height: 1.8rem;
 }
@@ -345,7 +358,7 @@ input:not(:focus):not(:placeholder-shown):invalid {
 	padding: 1rem;
 	margin-top: 2rem;
 	border:none;
-	background: darkslateblue;
+	background: RGB(0,96,165);
 	color:white;
 }
 
