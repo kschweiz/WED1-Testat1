@@ -129,19 +129,18 @@ span.blackUnder {
 
 
 /*lists*/
-
-
-nav dl{
-	padding:0.5%;
-	width:100%;
-	background: rgb(246,246,246);
-
-	border: 2px solid steelblue;
+nav ul{
+    list-style-type: none;
+}
+nav > ul {
+    padding: 0.5%;
+    background: rgb(246,246,246);
+    border: 2px solid steelblue;
+}
+nav > ul ul{
+    padding-left: 1.5%;
 }
 
-nav dd {
-    padding-left:1.5%;
-}
 
 nav a[hreflang="fr"]::before{
     background-image: url("../../media/flag-fr.svg");
@@ -149,7 +148,7 @@ nav a[hreflang="fr"]::before{
 nav a[hreflang="it"]::before{
     background-image: url("../../media/flag-it.svg");
 }
-dd > a[hreflang="en"]::before{
+nav a[hreflang="en"]::before{
     background-image: url("../../media/flag-en.svg");
 }
 
