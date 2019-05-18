@@ -31,6 +31,7 @@ function buttonClearHandler(){
 }
 
 function buttonNumClickHandler(){
+    /*jshint validthis: true */
     let content = this.value;
     
     if(operation === ""){
@@ -45,6 +46,7 @@ function buttonNumClickHandler(){
 }
 
 function buttonOpClickHandler(){
+    /*jshint validthis: true */
     let content = this.value;
 
     if(operation === "" && number1 !== ""){
