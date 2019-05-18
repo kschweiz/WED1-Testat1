@@ -75,8 +75,8 @@ function buttonClearHandler(){
 
 $(document).on("ready", function() {
     $("#output").text("Welcome");
-    $(".number").on("click", buttonNumClickHandler);
-    $(".operator").on("click", buttonOpClickHandler);
+    $(".number").on("click", window.buttonNumClickHandler);
+    $(".operator").on("click", window.buttonOpClickHandler);
     $(".command").on("click", buttonCommandHandler);
     $(".clear").on("click", buttonClearHandler);
  });

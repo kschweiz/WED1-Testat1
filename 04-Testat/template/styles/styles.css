@@ -53,12 +53,17 @@ figcaption a{
 
 iframe {
     width: 100%;
-    height: calc(56.25vw - 2rem);
-    border: none;
+	border: none;
+	display: block;
+	height: calc(56vw - 2rem);
 }
 
-#demonstration > figure {
-    width: calc(55vw - 2rem);
+#calculator  {
+	max-height: 35em;
+	max-width: 33em;
+	overflow:hidden;
+	border:none;
+
 }
 
 figure.calcPic {
@@ -335,15 +340,6 @@ input:not(:focus):not(:placeholder-shown):invalid {
 	padding: 0; margin: 0;
 }
 
-iframe {
-	width: 100%;
-	height: calc(56.25vw - 2rem);
-	border: none;
-}
-
-#demonstration > figure{
-	width: calc(50vw - 2rem);
-}
 
 #page-footer{
 	padding: 1rem;
