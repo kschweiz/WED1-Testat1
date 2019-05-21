@@ -60,13 +60,13 @@ iframe {
 }
 
 #calculator  {
-	height: calc(56.25vw - 30em);
-	width: 30%;
+	height: calc(56.25vw - 4em);
+	width: 50%;
 	overflow:hidden;
 }
 
 #youtube {
-	height: calc(56.25vw - 28em);
+	height: calc(56.25vw - 4em);
 	overflow:hidden;
 
 }

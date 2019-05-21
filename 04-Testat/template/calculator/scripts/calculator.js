@@ -5,20 +5,16 @@
 class Calculator {
 
     constructor(){
+        
         this.clear();
-    }
 
-    clear(){
-        this.firstNumber = "";
-        this.secondNumber = "";
-        this.operator = "";
     }
 
     inputNumber(number){
-        if(isNaN(this.firstNumber) || this.firstNumber == ""){
+        if(this.firstNumber == ""){
             this.firstNumber = number;
         }else{
-            this.firstNumber = parseInt(this.firstNumber)*10 + number;
+            this.firstNumber = this.firstNumber*10 + parseInt(number);
         }
     }
 
@@ -30,9 +26,6 @@ class Calculator {
         this.operator = op;
     }
 
-    /*
-    * returns true on error
-    */
     calculate(){
         if((this.firstNumber === "" || this.secondNumber === "" || this.operator === "") || (this.firstNumber === 0 && this.operator === '/'))
         {
@@ -45,7 +38,7 @@ class Calculator {
             '+': (left, right) => left + right,
             '-': (left, right) => left - right,
             '*': (left, right) => left * right,
-            '/': (left, right) => left / right
+            '/': (left, right) => left / right  
         };
 
         this.firstNumber = operators[this.operator](this.secondNumber,this.firstNumber);
@@ -53,13 +46,20 @@ class Calculator {
         this.operator = "";
         return false;
     }
+
+    clear(){
+        this.firstNumber = "";
+        this.secondNumber = "";
+        this.operator = "";
+    }
 }
 /**
  * UI
  */
 window.addEventListener('DOMContentLoaded', function() {
     const calculator = new Calculator();
-    document.querySelector("#output").innerHTML = "Welcome";
+    let output= document.getElementById("output");
+    output.innerHTML = "Welcome";
     document.querySelector("form").addEventListener("click", () => {
         switch(event.target.className){
             case "number":
@@ -83,8 +83,8 @@ window.addEventListener('DOMContentLoaded', function() {
             default:
                 break;
         }
-        document.querySelector("#output").innerHTML = calculator.secondNumber + " " + calculator.operator;
-        document.querySelector("#input").innerHTML = calculator.firstNumber;
+        output.innerHTML = calculator.secondNumber + " " + calculator.operator;
+        document.getElementById("input").innerHTML = calculator.firstNumber;
     });
 });
 
@@ -93,6 +93,7 @@ window.addEventListener('DOMContentLoaded', function() {
  * Tests Scenarios
  */
 const testCalc = new Calculator();
+console.log("" == "");
 testCalc.inputNumber(1);
 testCalc.inputNumber(1);
 testCalc.inputOperator("+");
