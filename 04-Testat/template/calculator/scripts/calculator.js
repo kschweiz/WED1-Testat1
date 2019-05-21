@@ -3,12 +3,9 @@
  * core
  */
 class Calculator {
-    firstNumber = "";
-    secondNumber = "";
-    operator = "";
 
     constructor(){
-
+        this.clear();
     }
 
     clear(){
