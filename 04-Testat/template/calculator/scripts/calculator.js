@@ -37,7 +37,7 @@ class Calculator {
     * returns true on error
     */
     calculate(){
-        if((this.firstNumber == "" || this.secondNumber == "" || this.operator == "") || (this.firstNumber == 0 && this.operator == '/'))
+        if((this.firstNumber === "" || this.secondNumber === "" || this.operator === "") || (this.firstNumber === 0 && this.operator === '/'))
         {
             this.operator = "";
             this.secondNumber = "Invalid calculation";
@@ -51,7 +51,7 @@ class Calculator {
             '/': (left, right) => left / right
         };
 
-        this.firstNumber = operators[this.operator](this.firstNumber,this.secondNumber);
+        this.firstNumber = operators[this.operator](this.secondNumber,this.firstNumber);
         this.secondNumber = "";
         this.operator = "";
         return false;
