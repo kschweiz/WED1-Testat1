@@ -60,7 +60,7 @@ iframe {
 }
 
 #calculator  {
-	height: calc(56.25vw - 28em);
+	height: calc(56.25vw - 20em);
 	width: calc(100%/3);
 	overflow:hidden;
 

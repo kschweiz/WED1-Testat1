@@ -1,98 +1,122 @@
+'use strict';
 /**
  * core
  */
+class Calculator {
+    firstNumber = "";
+    secondNumber = "";
+    operator = "";
 
-"use strict";
+    constructor() {}
 
-var number1 = "";
-var number2 = "";
-var display = "";
-var operation = "";
+    clear(){
+        this.firstNumber = "";
+        this.secondNumber = "";
+        this.operator = "";
+    }
 
+    inputNumber(number){
+        if(isNaN(this.firstNumber) || this.firstNumber == ""){
+            this.firstNumber = number;
+        }else{
+            this.firstNumber = parseInt(this.firstNumber)*10 + number;
+        }
+    }
 
+    inputOperator(op){
+        if(this.operator == ""){
+            this.secondNumber = this.firstNumber;
+            this.firstNumber = "";
+        }
+        this.operator = op;
+    }
+
+    /*
+    * returns true on error
+    */
+    calculate(){
+        if((this.firstNumber == "" || this.secondNumber == "" || this.operator == "")
+        || (this.firstNumber == 0 && this.operator == '/'))
+        {
+            this.operator = ""
+            this.secondNumber = "Invalid calculation"
+            return true;
+        }
+
+        const operators = {
+            '+': (left, right) => left + right,
+            '-': (left, right) => left - right,
+            '*': (left, right) => left * right,
+            '/': (left, right) => left / right
+        };
+
+        this.firstNumber = operators[this.operator](this.firstNumber,this.secondNumber);
+        this.secondNumber = "";
+        this.operator = "";
+        return false;
+    }
+}
 /**
  * UI
  */
-function writeOutput(output){
-    document.getElementById("output").innerHTML = output;
-}
-
-function writeInput(input){
-    document.getElementById("input").innerHTML = input;
-}
-
-function buttonClearHandler(){
-    number1 = "";
-    number2 = "";
-    display = "";
-    operation = "";
-    writeInput("");
-    writeOutput("");
-}
-
-function buttonNumClickHandler(){
-    
-    let content = this.value;
-    
-    if(operation === ""){
-        number1 += content;
-        display += content;
-        writeInput(display);
-    }else{
-        number2 += content;
-        display += content;
-        writeInput(display);
-    }
-}
-
-function buttonOpClickHandler(){
-   
-    let content = this.value;
-
-    if(operation === "" && number1 !== ""){
-        operation = content;
-        display += content;
-        writeInput(display);
-    }
-}
-
-function buttonCommandHandler(){
-    if(operation === "/" && parseFloat(number2, 10) === 0){
-        buttonClearHandler();
-        writeOutput("Divsion by Zero not allowed!");
-    }else{
-        var result = "";
-        if(operation === "+"){
-            result = parseFloat(number1, 10) + parseFloat(number2, 10);
-        }else if(operation === "-"){
-            result = parseFloat(number1, 10) - parseFloat(number2, 10);
-        }else if(operation === "*"){
-            result = parseFloat(number1, 10) * parseFloat(number2, 10);
-        }else if(operation === "/"){
-            result = parseFloat(number1, 10) / parseFloat(number2, 10);
-        }else{
-            writeOutput("ERROR");
+window.addEventListener('DOMContentLoaded', function() {
+    const calculator = new Calculator();
+    document.querySelector("#output").innerHTML = "Welcome";
+    document.querySelector("form").addEventListener("click", () => {
+        switch(event.target.className){
+            case "number":
+                calculator.inputNumber(parseInt(event.target.value));
+                break;
+            case "operator":
+                calculator.inputOperator(event.target.value);
+                break;
+            case "command":
+                switch(event.target.id){
+                    case "key-c":
+                        calculator.clear();
+                        break;
+                    case "key-=":
+                        calculator.calculate();
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            default:
+                break;
         }
-    
-        number1 = result;
-        number2 = "";
-        display = result;
-        operation = "";
-        writeInput(result);
-        writeOutput(result);
-    }   
-}
-
-$(document).on("ready", function() {
-    $("#output").text("Welcome");
-    $(".number").on("click", buttonNumClickHandler);
-    $(".operator").on("click", buttonOpClickHandler);
-    $(".command").on("click", buttonCommandHandler);
-    $("#key-c").on("click", buttonClearHandler);
- });
+        document.querySelector("#output").innerHTML = calculator.secondNumber + " " + calculator.operator;
+        document.querySelector("#input").innerHTML = calculator.firstNumber;
+    });
+});
 
 
+/**
+ * Tests Scenarios
+ */
+const testCalc = new Calculator();
+var console = console; //only needed for validator
+testCalc.inputNumber(1);
+testCalc.inputNumber(1);
+testCalc.inputOperator("+");
+testCalc.inputNumber(6);
+testCalc.calculate();
+console.log(testCalc.firstNumber, "should be", 17);
 
+testCalc.inputOperator("-");
+testCalc.inputNumber(2);
+testCalc.calculate();
+console.log(testCalc.firstNumber, "should be", 15);
 
+testCalc.inputOperator("*");
+testCalc.inputNumber(2);
+testCalc.calculate();
+console.log(testCalc.firstNumber, "should be", 30);
 
-
+testCalc.clear();
+testCalc.inputOperator("*");
+testCalc.inputOperator("+");
+testCalc.inputOperator("-");
+testCalc.inputOperator("/");
+testCalc.inputNumber(4);
+console.log(testCalc.calculate(), "should be", true);
