@@ -7,7 +7,9 @@ class Calculator {
     secondNumber = "";
     operator = "";
 
-    constructor() {}
+    constructor(){
+
+    }
 
     clear(){
         this.firstNumber = "";
@@ -35,11 +37,10 @@ class Calculator {
     * returns true on error
     */
     calculate(){
-        if((this.firstNumber == "" || this.secondNumber == "" || this.operator == "")
-        || (this.firstNumber == 0 && this.operator == '/'))
+        if((this.firstNumber == "" || this.secondNumber == "" || this.operator == "") || (this.firstNumber == 0 && this.operator == '/'))
         {
-            this.operator = ""
-            this.secondNumber = "Invalid calculation"
+            this.operator = "";
+            this.secondNumber = "Invalid calculation";
             return true;
         }
 
@@ -95,7 +96,6 @@ window.addEventListener('DOMContentLoaded', function() {
  * Tests Scenarios
  */
 const testCalc = new Calculator();
-var console = console; //only needed for validator
 testCalc.inputNumber(1);
 testCalc.inputNumber(1);
 testCalc.inputOperator("+");
